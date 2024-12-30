@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 외부 CSS 파일 연결 -->
+  <link rel="stylesheet" href="../css/02_CSS선택자2.css">
+  <title>02_CSS선택자2</title>
+</head>
+<body>
+  <h1>기본 속성 선택자</h1>
+  <pre>
+    - 요소에 작성된 속성을 이용해 선택하는 선택자
+    - 속성, 속성 값이 일치하는 요소만을 선택
+
+    <strong>[작성법]</strong>
+    <code>
+      1. 같은 속성을 가진 요소 선택
+        [속성명]{CSS 코드;}
+
+      2. 같은 속성, 속성 값을 가진 요소 선택
+        [속성명=속성값]{CSS 코드;}
+        //속성 값은 '',"" 사용 가능
+      
+    </code>
+  </pre>
+
+  <h4>name 을 가진 요소 선택</h4>
+  <div name="aaa">test1</div>
+  <div>test2</div>
+  <div name="bbb">test3</div>
+  <hr>
+
+  <h3></h3>
+  <pre>
+    -  지정된 요소(A선택자)의 바로 1 레벨 하위의 있는 요소(B선택자)를 선택하는 선택자
+
+    <strong>[작성법]</strong>
+    <code>
+      A선택자 > B선택자 {CSS 코드;}
+      A부모 밑에 B자식 선택
+    </code>
+  </pre>
+
+  <ul class="parent-1">
+    <li>자식1</li>
+    <li><span>자식2</span></li>
+    <li>자식3</li>
+    <li class="child-1">자식4</li>
+    <li class="child-1">자식5</li>
+  </ul>
+  <p class="child-1">ul 밖 .child-1요소</p>
+  <hr>
+
+  <h3>후손 선택자 (A선택자 B선택자, 띄어쓰기가 선택자)</h3>
+  <pre>
+    -  지정된 요소(A선택자)의 모든 하위의 있는 요소(B선택자)를 선택하는 선택자
+
+    <strong>[작성법]</strong>
+    <code>
+      A선택자 B선택자 {CSS 코드;}
+      //A선택자 : 부모(조상)
+      //B선택자 : 자식(후손)
+    </code>
+  </pre>
+  <div class="parent-2">
+    <p>.parent-2의 자식 요소</p>
+    <p>.parent-2의 후손 요소</p>
+
+    <div>
+      <p>.parent-2의 후손 요소</p>
+      <h4>.parent-2의 후손 요소</h4>
+    </div>
+  </div>
+  <hr>
+
+  <h3>반응 선택자</h3>
+  <pre>
+    - user의 움직임에 반응하여 요소를 선택하는 선택자
+
+    :hover : 선택된 요소에 마우스가 올렸을때 + 마우스가 벗어나면 기존 상태로 복원
+
+    :active : 선택된 요소에
+  </pre>
+  <button class="test-btn">Test Button</button>
+  <hr>
+
+  <h3>상태 선택자</h3>
+  <pre>
+    - input 에 상태에 따라서 선택되는 선택자
+
+    :focus : input 에 초점이 맞춰졌을 때 선택
+
+    :checked : type이 radio/checkbox 체크..
+
+    :enabled/disabled : input 에 값을 작성하거나 못하거나
+  </pre>
+  <h4>focus test</h4>
+  input : <input type="text" class="input-1">
+
+  <h4>checked test</h4>
+  radio : 
+  <input type="radio" class="radioGroup">
+  <input type="radio" class="radioGroup">
+  <input type="radio" class="radioGroup">
+  <br>
+  checkbox : 
+  <input type="checkbox" class="checkGroup">
+  <input type="checkbox" class="checkGroup">
+  <input type="checkbox" class="checkGroup">
+
+  <h4>enabled/disabled test</h4>
+  input : <input type="text" class="input-3"><br>
+  input : <input type="text" class="input-3" disabled>
+
+  <hr>
+  
+  <h3>동위 선택자(+, ~)</h3>
+  <pre>
+    동위(동등한 위치 == 형제 관계)
+    다음(뒤, 아래)에 위치한 요소를 선택하는 선택자
+
+    1. A 바로 다음에 위치한 요소를 하나 선택(+)
+    <code>
+      A선택자 + B선택자 {CSS 코드;}
+    </code>
+    2. A 바로 다음에 위치한 모든 B요소를 하나 선택(~, Tilde(틸드))
+    <code>
+      A선택자 ~ B선택자 {CSS 코드;}
+    </code>
+  </pre>
+  <!-- div{$번 입니다.}*5 -->
+  <div id="div1">1번 입니다.</div>
+  <div>2번 입니다.</div>
+  <div id="div3">3번 입니다.</div>
+  <div id="div4">4번 입니다.</div>
+  <p>p 태그 입니다</p>
+  <div>5번 입니다.</div>
+  <hr>
+
+  <h3>radio,checkbox 스타일 변경하기</h3>
+  <input type="radio" name="radioDeco">
+  <input type="radio" name="radioDeco">
+  <input type="radio" name="radioDeco">
+  <br>
+  <input type="checkbox" name="checkDeco">
+  <input type="checkbox" name="checkDeco">
+  <input type="checkbox" name="checkDeco">
+  <hr>
+
+  <h3>이미지를 이용해서 체크박스 꾸미기</h3>
+  <pre>
+    [필요사항]
+    - input type"checkbox"
+    - label 태그 : input 의 제목을 지정하는 태그, 클릭시 연결된 input이 클릭되는 효과
+    - :checked(상태 선택자)
+    - +(동위 선택자, 형제 요소 1개 선택)
+    - 체크박스 이미지
+  </pre>
+  <label class="check-test">
+    <input type="checkbox">
+    <div></div>
+  </label>
+  <label class="check-test">
+    <input type="checkbox">
+    <div></div>
+  </label>
+  <label class="check-test">
+    <input type="checkbox">
+    <div></div>
+  </label>
+
+</body>
+</html>
