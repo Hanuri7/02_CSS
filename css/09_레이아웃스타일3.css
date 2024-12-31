@@ -1,0 +1,133 @@
+@font-face {
+  font-family: 'TheJamsil5Bold';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+*{
+  /* width/height 크기 설정 시 설정 된 값이 content + padding + border 크기를 합산한 결과가 되도록 
+  content 영역의 크기를 자동으로 조정 */
+  /* 개발자 의도대로 요소 크기를 쉽게 지정 가능 */
+  box-sizing: border-box; 
+  /* html 는 기본적으로 설정된 padding, margin 이 있는 요소가 존재 */
+  padding: 0;
+  margin: 0;
+}
+div{
+  border: 1px solid black;
+}
+.container-1{
+  width: 304px;
+  height: 304px;
+  border: 1px solid red;
+  border-radius: 50%; /* 모서리 곡률 */
+  margin: 30px;  
+  position: relative; /* 내부 absolute 요소 배치의 기준으로 설정 */
+}
+.container-1 div{
+  border-radius: 50%; /* 모서리 곡률 지정 */
+}
+/* first */
+.container-1 > :nth-child(1){
+  width: 220px;
+  height: 220px;
+  background-color: skyblue; 
+  position: absolute;
+  top: 40px;  /* 위쪽 테두리로 부터 n 만큼 떨어진 위치에 배치 */
+  left: 40px; /* 왼쪽 테두리로 부터 n 만큼 떨어진 위치에 배치 */
+}
+/* second */
+.container-1 > :nth-child(2){
+  width: 140px;
+  height: 140px;
+  background-color: red;
+  position: absolute;
+  top: 80px;
+  left: 80px;
+}
+/* third */
+.container-1 > :nth-child(3){
+  width: 40px;
+  height: 40px;
+  background-color: yellow;
+  position: absolute;
+  top: 130px;
+  left: 130px;
+}
+/* z-index */
+.container-2{
+  width: 300px;
+  height: 300px;
+  position: relative; /* 기준점 */
+}
+.container-2 > :nth-child(1){
+  background-color: red;
+  width: 50%; /* 감싸는 요소의 width 50%로 적용 */
+  height: 50%; /* 감싸는 요소의 height 50%로 적용 */
+  position: absolute;
+  z-index: 10;
+}
+.container-2 > :nth-child(2){
+  background-color: orange;
+  width: 60%;
+  height: 60%;
+  position: absolute;
+  z-index: 7;
+  right: 0;
+}
+.container-2 > :nth-child(3){
+  background-color: yellow;
+  width: 70%;
+  height: 70%;
+  position: absolute;
+  z-index: 3;
+  right: 0;
+  bottom: 0;
+}
+.container-2 > :nth-child(4){
+  background-color: green;
+  width: 80%;
+  height: 80%;
+  position: absolute;
+  z-index: 5;
+  left: 0;
+  bottom: 0;
+}
+/* fixed */
+html{
+  scroll-behavior: smooth;
+}
+.top-btn-container{
+  border: 3px solid black;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  position: fixed;  /* 화면에 고정 */
+  right: 50px;
+  bottom: 50px;
+}
+/* a */
+.top-btn{
+  color: black;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center; /* 좌우(행) 가운데 정렬 */
+  /* 줄 간격 보다 글자 크기가 작으면 세로 가운데 배치 */
+  line-height: 43px;  /* 줄 간격 */
+}
+/* sticky */
+.sticky{
+  background-color: purple;
+  color: white;
+  font-weight: bold;
+  padding: 100px 20px 30px; /* 상/좌우/하 */
+  position: sticky; /* 요소가 화면을 벗어나는 순간 fixed */
+  top: -70px;
+  z-index: 100; /* 다른 z 보다 상위 */
+  font-family: 'TheJamsil5Bold';
+  font-size: 60px;
+}
