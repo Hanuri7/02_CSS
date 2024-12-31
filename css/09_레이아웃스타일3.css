@@ -128,6 +128,7 @@ html{
   position: sticky; /* 요소가 화면을 벗어나는 순간 fixed */
   top: -70px;
   z-index: 100; /* 다른 z 보다 상위 */
+  /* Wep font */
   font-family: 'TheJamsil5Bold';
   font-size: 60px;
 }
