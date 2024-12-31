@@ -1,1 +1,31 @@
 /*  */
+* {
+  /* width/height 크기 설정 시 설정 된 값이 content + padding + border 크기를 합산한 결과가 되도록 
+      content 영역의 크기를 자동으로 조정 */
+  box-sizing: border-box;
+}
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: lightcoral;
+}
+/* border */
+.border {
+  border: 10px solid black;
+}
+.content {
+  width: 150px;
+  height: 150px;
+  box-sizing: content-box;  /* width/height 설정 값이 content만 적용 */
+}
+/* padding(채우기) */
+.padding {
+  padding: 20px;  /* border 사이에 20px 만큼 공간 생성(4방향) */
+}
+/* margin(여백, 간격) */
+.margin-1 {
+  margin: 50px; /* 상하좌우 다른 요소와 간격 50px */
+}
+.margin-2 {
+  margin: 100px; /* 상하좌우 다른 요소와 간격 100px */
+}
